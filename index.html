@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather App</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- navbar  -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <!-- <a class="navbar-brand" href="#">
+        <img src="images/icons8-rain.gif" alt="Bootstrap" width="30" height="24" class="mr-0 pr-0">
+      </a> -->
+      <a class="navbar-brand text-danger" href="index.html">Weather</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-danger" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="usageGuide.html">Guide</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Common-Search
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="#">Kolkata</a></li>
+              <li><a class="dropdown-item" href="#">Banglore</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Delhi</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="About.html">About this App</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input id="city" class="form-control me-2" type="search" placeholder="Loaction" aria-label="Search">
+          <button class="btn btn-outline-danger" type="submit" id="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- main heading -->
+  <h1 class="display-6 text-center mb-4 mt-4 pt-5 pb-2"><img src="images/icons8-rain.gif" alt="Bootstrap" width="50" height="44" class="mr-0 pr-0">Weather for <strong style="font-family: 'Qwitcher Grypen', cursive;
+    font-size: 112px; font-weight:bolder; "><span id="cityName" class="text-danger"></span></strong>
+  </h1>   
+  
+  <div class="container">
+    <main>
+      
+      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm border-danger">
+            <div class="card-header py-3 text-bg-danger border-danger">
+              <h4 class="my-0 fw-normal">Tempratures</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><span id="temp2"></span><small class="text-muted fw-light">
+                  &#8451;</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Temprature is <span id="temp"></span><small class="text-muted fw-light"> &#8451;</small></li>
+                <li>Minimum Temp is <span id="min_temp"></span><small class="text-muted fw-light"> &#8451;</small></li>
+                <li>Maximum Temp is <span id="max_temp"></span><small class="text-muted fw-light"> &#8451;</small></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm border-danger">
+            <div class="card-header py-3 text-bg-danger border-danger">
+              <h4 class="my-0 fw-normal">Wind Info</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><span id="humidity2"></span><small class="text-muted fw-light">
+                  %</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <!-- <li>Cloud PCT is  <span id="cloud_pct"></span></li> -->
+                <li>Feels like <span id="feels_like"></span><small class="text-muted fw-light"> &#8451;</small></li>
+                <li>Humidity is <span id="humidity"></span><small class="text-muted fw-light"> %</small></li>
+                <li>Wind Degree is <span id="wind_degrees"></span><small class="text-muted fw-light">  &#176;</small></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm border-danger">
+            <div class="card-header py-3 text-bg-danger border-danger">
+              <h4 class="my-0 fw-normal">Sun Info</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><span id="wind_speed2"></span><small
+                  class="text-muted fw-light"> Km/hr</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Wind Speed is <span id="wind_speed"></span><small class="text-muted fw-light"> Km/h</small></li>
+                <li>Sunrise Time is <span id="sunrise"></span><small class="text-muted fw-light"> s</small></li>
+                <li>Sunset Time is <span id="sunset"></span><small class="text-muted fw-light"> s</small></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="display-6 text-center mb-4 mt-4 pt-5 pb-2">Weather for other common places</h2>
+
+      <div class="table-responsive">
+        <table class="table text-center">
+          <thead>
+            <tr>
+              <th style="width: 11%;"></th>
+              <!-- <th style="width: 11%;"> Cloud_pct </th> -->
+              <th style="width: 11%;"> Feels_like </th>
+              <th style="width: 11%;"> Humidity </th>
+              <th style="width: 11%;"> Max_temp </th>
+              <th style="width: 11%;"> Min_temp </th>
+              <!-- <th style="width: 11%;"> Sunrise </th>
+              <th style="width: 11%;"> Sunset </th> -->
+              <th style="width: 11%;"> Temp </th>
+              <th style="width: 11%;"> Wind_degrees </th>
+              <th style="width: 11%;"> Wind_speed </th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-start text-center text-bg-danger">Toranto</th>
+              <td><span id="Torontofeels_like"></span><small class="text-muted fw-light"> &#8451;</small></td>
+              <td><span id="Torontohumidity"></span><small class="text-muted fw-light"> %</small></td>
+              <td><span id="Torontomax_temp"></span><small class="text-muted fw-light"> &#8451;</small></td>
+              <td><span id="Torontomin_temp"></span><small class="text-muted fw-light"> &#8451;</small></td>
+              <td><span id="Torontotemp"></span><small class="text-muted fw-light"> &#8451;</small></td>
+              <td><span id="Torontowind_degrees"></span><small class="text-muted fw-light"> &#176;</small></td>
+              <td><span id="Torontowind_speed"></span><small class="text-muted fw-light"> Km/h</small></td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start text-center text-bg-danger">Boston</th>
+              <td><span id="Bostonfeels_like"></span><small class="text-muted fw-light"> &#8451;</small></td>
+              <td><span id="Bostonhumidity"></span><small class="text-muted fw-light"> %</small></td>
+              <td><span id="Bostonmax_temp"></span><small class="text-muted fw-light"> &#8451;</small></td>
+              <td><span id="Bostonmin_temp"></span><small class="text-muted fw-light"> &#8451;</small></td>
+              <td><span id="Bostontemp"></span><small class="text-muted fw-light"> &#8451;</small></td>
+              <td><span id="Bostonwind_degrees"></span><small class="text-muted fw-light"> &#176;</small></td>
+              <td><span id="Bostonwind_speed"></span><small class="text-muted fw-light"> Km/h</small></td>
+            </tr>
+          </tbody>
+
+          <tbody>
+            <tr>
+              <th scope="row" class="text-start text-center text-bg-danger">Shanghai</th>
+              <td><span id="Shanghaifeels_like"></span><small class="text-muted fw-light"> &#8451;</small></td>
+              <td><span id="Shanghaihumidity"></span><small class="text-muted fw-light"> %</small></td>
+              <td><span id="Shanghaimax_temp"></span><small class="text-muted fw-light"> &#8451;</small></td>
+              <td><span id="Shanghaimin_temp"></span><small class="text-muted fw-light"> &#8451;</small></td>
+              <td><span id="Shanghaitemp"></span><small class="text-muted fw-light"> &#8451;</small></td>
+              <td><span id="Shanghaiwind_degrees"></span><small class="text-muted fw-light"> &#176;</small></td>
+              <td><span id="Shanghaiwind_speed"></span><small class="text-muted fw-light"> Km/h</small></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <!-- footer  -->
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-muted"><p class="text-muted mb-0">© All rights reserved. Made with <i class="fa-regular fa-heart"></i> by&nbsp; <a href="#" class="text-muted " target="_blank" rel="noopener">Dhruvi Prajapati</a></p></span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex link-dark">
+        <li class="ms-3"><a class="text-muted link-dark" href="https://github.com/dhruvi1103"><img class="bi" src="images/GitHub-Logo.wine.svg" alt="#GitHub" width="34" height="34"></a></li>
+        <li class="ms-3"><a class="text-muted link-dark" href="https://www.instagram.com/dhulo1103/"><img class="bi" src="images/insta_logo.svg" alt="#Instagram" width="34" height="34"></a></li>
+        <li class="ms-3"><a class="text-muted link-dark" href="#"><img class="bi" src="images/Twitter-Logo.wine.svg" alt="#Twitter" width="34" height="34"></a></li>
+      </ul>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/f2c83eed62.js" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
